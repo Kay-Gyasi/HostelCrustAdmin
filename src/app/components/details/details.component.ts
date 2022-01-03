@@ -22,21 +22,14 @@ export class DetailsComponent implements OnInit {
     this.orderNum = this.route.snapshot.params['num'];
 
     this.getOrderDetails(this.orderNum);
-
-    this.totalCost = this.getTotalCost();
   }
 
   getOrderDetails(num:string){
     return this.service.GetOrderDetails(num).subscribe({
-      next: data => {this.details = data}
+      next: data => {this.details = data;
+      for(const id in data){
+        this.totalCost += data[id].totalPrice;
+      }}
     })
-  }
-
-  getTotalCost(){
-    for(const id in this.details){
-      this.totalCost += this.details[id].totalPrice;
-    }
-    return this.totalCost;
-  }
-
+  };
 }
