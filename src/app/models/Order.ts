@@ -5,4 +5,5 @@ export class Order{
   isDelivery?:boolean;
   additionalInfo?:string;
   deliveryLocation?:string;
+  dateOrdered:Date;
 }

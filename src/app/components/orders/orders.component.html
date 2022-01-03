@@ -7,14 +7,19 @@
         <td>Additional Request</td>
         <td>Delivery Location</td>
         <td>Delivered?</td>
+        <td>Order date</td>
       </tr>
     </thead>
-    <tr *ngFor="let x of orders">
-      <td>{{ x.customer }}</td>
-      <td>{{ x.isDelivery }}</td>
-      <td>{{ x.additionalInfo }}</td>
-      <td>{{ x.deliveryLocation }}</td>
-      <td>{{ x.isFulfilled }}</td>
-    </tr>
+    <tbody>
+      <tr *ngFor="let x of orders">
+        <td>{{ x.customer }}</td>
+        <td>{{ x.isDelivery }}</td>
+        <td>{{ x.additionalInfo }}</td>
+        <td>{{ x.deliveryLocation }}</td>
+        <td>{{ x.isFulfilled }}</td>
+        <td>{{ x.dateOrdered }}</td>
+      </tr>
+    </tbody>
+    <tfoot></tfoot>
   </table>
 </div>
