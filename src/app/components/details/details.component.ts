@@ -36,6 +36,7 @@ export class DetailsComponent implements OnInit {
     for(const id in this.details){
       this.totalCost += this.details[id].totalPrice;
     }
+    return this.totalCost;
   }
 
 }
