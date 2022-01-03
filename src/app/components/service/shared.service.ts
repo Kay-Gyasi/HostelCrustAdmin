@@ -4,6 +4,7 @@ import { map, Observable } from 'rxjs';
 import { Product } from 'src/app/models/product';
 import { Order } from 'src/app/models/Order';
 import { Detail } from 'src/app/models/orderDetail';
+import { Customer } from 'src/app/models/customer';
 
 @Injectable({
   providedIn: 'root'
@@ -51,6 +52,21 @@ GetOrderDetails(orderNum:string):Observable<Array<Detail>>{
 
       for(const id in data){
         if(data.hasOwnProperty(id) && data[id].orderNum == orderNum){
+          orderArray.push(data[id]);
+        }
+      }
+      return orderArray;
+    })
+  );
+}
+
+GetCustomers():Observable<Customer[]>{
+  return this.http.get<Customer[]>(this.apiurl+"User/GetUsers").pipe(
+    map(data => {
+      const orderArray:Customer[] = [];
+
+      for(const id in data){
+        if(data.hasOwnProperty(id)){
           orderArray.push(data[id]);
         }
       }

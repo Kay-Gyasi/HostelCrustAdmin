@@ -1,3 +1,25 @@
-<p>
-  customers works!
-</p>
+<div>
+  <table class="table table-dark table-hover" style="overflow:scroll;">
+    <thead>
+      <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Phone</td>
+        <td>Address</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let x of users">
+        <td>{{ x.customerID }}</td>
+        <td>{{ x.firstName + ' ' + x.lastName }}</td>
+        <td>{{ x.Email }}</td>
+        <td>{{ x.Phone }}</td>
+        <td>{{ x.Address }}</td>
+      </tr>
+    </tbody>
+    <tfoot></tfoot>
+  </table>
+</div>
+
+
