@@ -25,6 +25,6 @@ export class ProductsComponent implements OnInit {
   }
 
   getEdit(prod:string){
-    return 'edit/' + prod;
+    return 'edit/' + prod.split('(')[0];
   }
 }
