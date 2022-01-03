@@ -14,11 +14,7 @@ export class ProductsComponent implements OnInit {
 
   products:Product[];
 
-  product:string;
-
   ngOnInit() {
-    this.product = this.route.snapshot.params['prod'];
-
     this.getProducts();
   }
 
@@ -28,8 +24,7 @@ export class ProductsComponent implements OnInit {
     })
   }
 
-  getEdit(){
-    return 'edit/' + this.product;
+  getEdit(prod:string){
+    return 'edit/' + prod;
   }
-
 }

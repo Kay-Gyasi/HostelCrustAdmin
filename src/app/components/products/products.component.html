@@ -17,7 +17,7 @@
         <td>{{ x.title }}</td>
         <td>{{ x.price }}</td>
         <td>{{ x.isAvailable }}</td>
-        <td><button class="btn btn-primary" [routerLink]="getEdit()">Edit</button></td>
+        <td><button class="btn btn-primary" [routerLink]="getEdit(x.title)">Edit</button></td>
       </tr>
     </tbody>
     <tfoot></tfoot>
