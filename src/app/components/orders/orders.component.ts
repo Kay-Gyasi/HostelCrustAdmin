@@ -30,7 +30,7 @@ export class OrdersComponent implements OnInit {
     var dater = use[0].toString().split('T')[0];
     var timer = use[0].toString().split('T')[1];
 
-    return dater + ' ' + timer;
+    return dater + ', ' + timer;
   }
 
 }
