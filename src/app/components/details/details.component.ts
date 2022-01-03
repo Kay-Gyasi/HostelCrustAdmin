@@ -23,7 +23,7 @@ export class DetailsComponent implements OnInit {
 
     this.getOrderDetails(this.orderNum);
 
-    this.getTotalCost;
+    this.totalCost = this.getTotalCost();
   }
 
   getOrderDetails(num:string){
