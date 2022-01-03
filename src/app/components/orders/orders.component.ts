@@ -33,4 +33,8 @@ export class OrdersComponent implements OnInit {
     return dater + ', ' + timer;
   }
 
+  details(orderNum:string){
+    return 'details/' + orderNum;
+  }
+
 }
