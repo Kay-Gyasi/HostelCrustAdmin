@@ -35,11 +35,11 @@ GetOrders():Observable<Array<Order>>{
       const orderArray:Order[] = [];
 
       for(const id in data){
-        if(data.hasOwnProperty(id)){
+        if(data.hasOwnProperty(id) && data[id].isFulfilled == false){
           orderArray.push(data[id]);
         }
       }
-      return orderArray.reverse();
+      return orderArray;
     })
   );
 }
