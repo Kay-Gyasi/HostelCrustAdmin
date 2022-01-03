@@ -39,7 +39,7 @@ GetOrders():Observable<Array<Order>>{
           orderArray.push(data[id]);
         }
       }
-      return orderArray;
+      return orderArray.reverse();
     })
   );
 }
