@@ -22,6 +22,8 @@ export class DetailsComponent implements OnInit {
     this.orderNum = this.route.snapshot.params['num'];
 
     this.getOrderDetails(this.orderNum);
+
+    this.getTotalCost;
   }
 
   getOrderDetails(num:string){
