@@ -1,3 +1,25 @@
-<p>
-  products works!
-</p>
+<div>
+  <table class="table table-dark table-hover" style="overflow:scroll;">
+    <thead>
+      <tr>
+        <td>ID</td>
+        <td>Category</td>
+        <td>Name</td>
+        <td>Price</td>
+        <td>Available?</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let x of products">
+        <td>{{ x.productID }}</td>
+        <td>{{ x.categoryName }}</td>
+        <td>{{ x.title }}</td>
+        <td>{{ x.price }}</td>
+        <td>{{ x.isAvailable }}</td>
+      </tr>
+    </tbody>
+    <tfoot></tfoot>
+  </table>
+</div>
+
+
