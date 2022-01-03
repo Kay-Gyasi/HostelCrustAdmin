@@ -16,6 +16,8 @@ export class DetailsComponent implements OnInit {
 
   orderNum = '';
 
+  totalCost = 0;
+
   ngOnInit(): void {
     this.orderNum = this.route.snapshot.params['num'];
 
@@ -26,6 +28,12 @@ export class DetailsComponent implements OnInit {
     return this.service.GetOrderDetails(num).subscribe({
       next: data => {this.details = data}
     })
+  }
+
+  getTotalCost(){
+    for(const id in this.details){
+      this.totalCost += this.details[id].totalPrice;
+    }
   }
 
 }
