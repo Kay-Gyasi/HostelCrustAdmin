@@ -27,7 +27,9 @@ export class OrdersComponent implements OnInit {
 
   trimDate(date:Date){
     var use = date.toString().split('.');
-    return use[0];
+    var time = use.toString().split('T');
+
+    return use[0] + ' ' + time[1];
   }
 
 }

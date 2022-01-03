@@ -17,8 +17,7 @@
         <td>{{ x.additionalInfo }}</td>
         <td>{{ x.deliveryLocation }}</td>
         <td>{{ x.isFulfilled }}</td>
-        <td>{{ x.dateOrdered.getDate() + '/' + x.dateOrdered.getMonth() + '/' +x.dateOrdered.getFullYear() + ', ' 
-          + x.dateOrdered.getHours() + ':' +x.dateOrdered.getMinutes()}}</td>
+        <td>{{ trimDate(x.dateOrdered) }}</td>
         <!-- <td><button class="btn btn-primary">View details</button></td>
         <td><button class="btn btn-secondary">Finish</button></td> -->
       </tr>
