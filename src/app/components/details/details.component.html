@@ -1,1 +1,21 @@
-<p>details works!</p>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Unit Price (GHS)</th>
+      <th>Quantity Ordered</th>
+      <th>Total Cost (GHS)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let x of details">
+      <td>{{ x.product }}</td>
+      <td>{{ x.price }}</td>
+      <td>{{ x.quantity }}</td>
+      <td>{{ x.totalPrice }}</td>
+    </tr>
+  </tbody>
+  <tfoot>
+
+  </tfoot>
+</table>

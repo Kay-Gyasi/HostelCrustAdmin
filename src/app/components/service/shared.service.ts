@@ -44,13 +44,13 @@ GetOrders():Observable<Array<Order>>{
   );
 }
 
-GetOrderDetails():Observable<Array<Detail>>{
+GetOrderDetails(orderNum:string):Observable<Array<Detail>>{
   return this.http.get<Detail[]>(this.apiurl+"OrderDetail/GetOrderDetails").pipe(
     map(data => {
       const orderArray:Detail[] = [];
 
       for(const id in data){
-        if(data.hasOwnProperty(id)){
+        if(data.hasOwnProperty(id) && data[id].orderNum == orderNum){
           orderArray.push(data[id]);
         }
       }
