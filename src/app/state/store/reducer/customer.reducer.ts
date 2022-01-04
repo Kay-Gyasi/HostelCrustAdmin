@@ -35,5 +35,8 @@ export function customerReducer(state:CustomerState = initialState, action:Admin
       loading:false,
       error:action.payload
     }
+
+    default:
+      return state;
   }
 }

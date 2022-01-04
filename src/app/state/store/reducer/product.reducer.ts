@@ -35,5 +35,8 @@ export function productReducer(state:ProductState = initialState, action:AdminAc
       loading:false,
       error:action.payload
     }
+
+    default:
+      return state;
   }
 }

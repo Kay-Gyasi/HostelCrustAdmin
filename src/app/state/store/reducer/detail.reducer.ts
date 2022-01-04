@@ -35,5 +35,8 @@ export function detailsReducer(state:DetailState = initialState, action:AdminAct
       loading:false,
       error:action.payload
     }
+
+    default:
+      return state;
   }
 }

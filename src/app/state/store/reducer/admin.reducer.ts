@@ -35,5 +35,8 @@ export function orderReducer(state:AdminState = initialState, action:AdminAction
         loading:false,
         error:action.payload
     }
+
+    default:
+      return state;
   }
 }
