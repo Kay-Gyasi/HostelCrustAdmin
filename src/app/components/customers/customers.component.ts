@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { Customer } from 'src/app/models/customer';
+import { LoadCustomerssAction } from 'src/app/state/store/action/hostel.action';
+import { AppState } from 'src/app/state/store/reducer';
 import { SharedService } from '../service/shared.service';
 
 @Component({
@@ -9,18 +13,18 @@ import { SharedService } from '../service/shared.service';
 })
 export class CustomersComponent implements OnInit {
 
-  users:Customer[];
+  users$:Observable<Customer[]>;
+  loading$:Observable<boolean>;
+  error$:Observable<Error>;
 
-  constructor(private service:SharedService) { }
+  constructor(private service:SharedService, private store:Store<AppState>) { }
 
   ngOnInit() {
-    this.Customers();
-  }
+    this.users$ = this.store.select((store) => store.customer.list);
+    this.loading$ = this.store.select((store) => store.customer.loading);
+    this.error$ = this.store.select((store) => store.customer.error);
 
-  Customers(){
-    this.service.GetCustomers().subscribe({
-      next: data => {this.users = data}
-    })
+    this.store.dispatch(new LoadCustomerssAction)
   }
 
 }

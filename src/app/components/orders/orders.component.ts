@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Order } from 'src/app/models/Order';
+import { LoadOrdersAction } from 'src/app/state/store/action/hostel.action';
+import { AppState } from 'src/app/state/store/reducer';
 import { SharedService } from '../service/shared.service';
 
 @Component({
@@ -10,19 +13,21 @@ import { SharedService } from '../service/shared.service';
 })
 export class OrdersComponent implements OnInit {
 
-  constructor(private service:SharedService) { }
+  constructor(private service:SharedService, private store:Store<AppState>) { }
 
-  orders:Order[];
+  orders$:Observable<Order[]>;
+
+  loading$:Observable<boolean>;
+
+  error$:Observable<Error>;
 
   ngOnInit() {
-    this.ordersFunc();
-  }
 
-  ordersFunc(){
-    return this.service.GetOrders().subscribe(data => {
-      this.orders = data;
-      console.log(data);
-    })
+    this.orders$ = this.store.select((store) => store.order.list);
+    this.loading$ = this.store.select((store) => store.order.loading);
+    this.error$ = this.store.select((store) => store.order.error);
+
+    this.store.dispatch(new LoadOrdersAction);
   }
 
   trimDate(date:Date){
