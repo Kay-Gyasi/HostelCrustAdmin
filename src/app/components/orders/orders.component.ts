@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Order } from 'src/app/models/Order';
 import { LoadOrdersAction } from 'src/app/state/store/action/hostel.action';
 import { AppState } from 'src/app/state/store/reducer';
-import { SharedService } from '../service/shared.service';
+import { SharedService } from '../../service/shared.service';
 
 @Component({
   selector: 'app-orders',
@@ -42,4 +42,9 @@ export class OrdersComponent implements OnInit {
     return 'details/' + orderNum;
   }
 
+  finishOrder(id:number, order:Order){
+    this.service.DeleteOrder(id);
+
+    this.service.PostProcessedOrders(order);
+  };
 }

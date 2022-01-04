@@ -1,4 +1,5 @@
 export class Order{
+  orderID:number;
   customer:string;
   orderNum:string;
   isFulfilled:boolean;

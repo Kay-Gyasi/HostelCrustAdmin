@@ -6,7 +6,6 @@
         <td>Delivery</td>
         <td>Additional Request</td>
         <td>Delivery Location</td>
-        <td>Delivered?</td>
         <td>Order date</td>
         <td>Detail</td>
         <td>Order completed?</td>
@@ -18,10 +17,9 @@
         <td>{{ x.isDelivery }}</td>
         <td>{{ x.additionalInfo }}</td>
         <td>{{ x.deliveryLocation }}</td>
-        <td>{{ x.isFulfilled }}</td>
         <td>{{ trimDate(x.dateOrdered) }}</td>
         <td><button type="button" class="btn btn-primary" [routerLink]="details(x.orderNum)">Details</button></td>
-        <td><button class="btn btn-secondary">Finish</button></td>
+        <td><button class="btn btn-secondary" (click)="finishOrder(x.orderID, x)">Finish</button></td>
       </tr>
     </tbody>
     <tfoot></tfoot>

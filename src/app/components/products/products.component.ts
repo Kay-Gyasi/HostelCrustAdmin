@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { Product } from 'src/app/models/product';
 import { LoadProductsAction } from 'src/app/state/store/action/hostel.action';
 import { AppState } from 'src/app/state/store/reducer';
-import { SharedService } from '../service/shared.service';
+import { SharedService } from '../../service/shared.service';
 
 @Component({
   selector: 'app-products',

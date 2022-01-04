@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Customer } from 'src/app/models/customer';
 import { LoadCustomerssAction } from 'src/app/state/store/action/hostel.action';
 import { AppState } from 'src/app/state/store/reducer';
-import { SharedService } from '../service/shared.service';
+import { SharedService } from '../../service/shared.service';
 
 @Component({
   selector: 'app-customers',

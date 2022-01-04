@@ -4,7 +4,7 @@ import {HttpClientModule} from'@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SharedService } from './components/service/shared.service';
+import { SharedService } from './service/shared.service';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { ProductsComponent } from './components/products/products.component';
@@ -19,6 +19,7 @@ import { reducers } from './state/store/reducer';
 import { OrderEffects } from './state/effects/order.effect';
 import { CustomerEffects } from './state/effects/customer.effect';
 import { ProductEffects } from './state/effects/products.effect';
+import { CompletedOrdersComponent } from './components/completed-orders/completed-orders.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ProductEffects } from './state/effects/products.effect';
     ProductsComponent,
     CustomersComponent,
     DetailsComponent,
-    EditComponent
+    EditComponent,
+    CompletedOrdersComponent
   ],
   imports: [
     BrowserModule,
