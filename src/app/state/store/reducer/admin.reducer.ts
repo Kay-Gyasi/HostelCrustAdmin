@@ -39,13 +39,61 @@ export function orderReducer(state:AdminState = initialState, action:AdminAction
     case(AdminActionTypes.DELETE_ORDERS):
     return{
       ...state,
-      list:state.list.filter(item => item.orderNum !== action.payload.orderNum)
+      loading:true
+    }
+
+    case(AdminActionTypes.DELETE_ORDERS_SUCCESS):
+    return{
+      ...state,
+      list:state.list.filter(item => item.orderID !== action.payload.orderID),
+      loading:false
+    }
+
+    case(AdminActionTypes.DELETE_ORDERS_FAILURE):
+    return{
+      ...state,
+      loading:false,
+      error:Error
     }
 
     case(AdminActionTypes.ADD_COMPLETED_ORDERS):
     return{
       ...state,
+      loading:true
+    }
+
+    case(AdminActionTypes.ADD_COMPLETED_ORDERS_SUCCESS):
+    return{
+      ...state,
+      loading:false,
       list:action.payload
+    }
+
+    case(AdminActionTypes.ADD_COMPLETED_ORDERS_FAILURE):
+    return{
+      ...state,
+      loading:false,
+      error:Error
+    }
+
+    case(AdminActionTypes.LOAD_COMPLETED_ORDERS):
+    return{
+      ...state,
+      loading:true
+    }
+
+    case(AdminActionTypes.LOAD_COMPLETED_ORDERS_SUCCESS):
+    return{
+      ...state,
+      list:action.payload,
+      loading:false
+    }
+
+    case(AdminActionTypes.LOAD_COMPLETED_ORDERS_FAILURE):
+    return{
+      ...state,
+      loading:false,
+      error:Error
     }
 
     default:

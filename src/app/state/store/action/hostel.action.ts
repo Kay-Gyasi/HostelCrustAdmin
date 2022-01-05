@@ -72,14 +72,51 @@ export class LoadOrderDetailFailureAction implements Action {
 
 export class DeleteOrderAction implements Action {
   readonly type = AdminActionTypes.DELETE_ORDERS;
+}
+
+export class DeleteOrderSuccessAction implements Action {
+  readonly type = AdminActionTypes.DELETE_ORDERS_SUCCESS;
 
   constructor(public payload:Order){}
 }
 
+export class DeleteOrderFailureAction implements Action {
+  readonly type = AdminActionTypes.DELETE_ORDERS_FAILURE;
+
+  constructor(public payload:Error){}
+}
+
 export class AddCompletedOrderAction implements Action {
   readonly type = AdminActionTypes.ADD_COMPLETED_ORDERS;
+}
+
+export class AddCompletedOrderSuccessAction implements Action {
+  readonly type = AdminActionTypes.ADD_COMPLETED_ORDERS_SUCCESS;
 
   constructor(public payload:Order){}
+}
+
+export class AddCompletedOrderFailureAction implements Action {
+  readonly type = AdminActionTypes.ADD_COMPLETED_ORDERS_FAILURE;
+
+  constructor(public payload:Error){}
+}
+
+
+export class LoadCompletedOrderAction implements Action {
+  readonly type = AdminActionTypes.LOAD_COMPLETED_ORDERS;
+}
+
+export class LoadCompletedOrderSuccessAction implements Action {
+  readonly type = AdminActionTypes.LOAD_COMPLETED_ORDERS_SUCCESS;
+
+  constructor(public payload:Order[]){}
+}
+
+export class LoadCompletedOrderFailureAction implements Action {
+  readonly type = AdminActionTypes.LOAD_COMPLETED_ORDERS_FAILURE;
+
+  constructor(public payload:Error){}
 }
 
 export type AdminAction = LoadOrdersAction |
@@ -95,4 +132,11 @@ LoadCustomerssAction |
 LoadCustomerSuccessAction |
 LoadCustomerFailureAction |
 DeleteOrderAction |
-AddCompletedOrderAction;
+AddCompletedOrderAction |
+DeleteOrderSuccessAction |
+DeleteOrderFailureAction |
+AddCompletedOrderSuccessAction |
+AddCompletedOrderFailureAction |
+LoadCompletedOrderAction |
+LoadCompletedOrderSuccessAction |
+LoadCompletedOrderFailureAction;

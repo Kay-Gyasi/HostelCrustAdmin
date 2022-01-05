@@ -76,7 +76,7 @@ export class SharedService {
   }
 
   GetProcessedOrders():Observable<Order[]>{
-    return this.http.get<Order[]>(this.apiurl+"User/GetUsers").pipe(
+    return this.http.get<Order[]>(this.apiurl+"ProOrders/GetProOrders").pipe(
       map(data => {
         const orderArray:Order[] = [];
 

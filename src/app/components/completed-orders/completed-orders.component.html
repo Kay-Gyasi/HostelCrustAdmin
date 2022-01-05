@@ -1,1 +1,27 @@
-<p>completed-orders works!</p>
+<div>
+  <table class="table table-dark table-hover" style="overflow:scroll;">
+    <thead>
+      <tr>
+        <td>Customer</td>
+        <td>Delivery</td>
+        <td>Additional Request</td>
+        <td>Delivery Location</td>
+        <td>Order date</td>
+        <td>Detail</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let x of orders$ | async">
+        <td>{{ x.customer }}</td>
+        <td>{{ x.isDelivery }}</td>
+        <td>{{ x.additionalInfo }}</td>
+        <td>{{ x.deliveryLocation }}</td>
+        <td>{{ trimDate(x.dateOrdered) }}</td>
+        <td><button type="button" class="btn btn-primary" [routerLink]="details(x.orderNum)">Details</button></td>
+      </tr>
+    </tbody>
+    <tfoot></tfoot>
+  </table>
+</div>
+
+

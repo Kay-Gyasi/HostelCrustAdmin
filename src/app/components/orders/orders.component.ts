@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Order } from 'src/app/models/Order';
-import { AddCompletedOrderAction, DeleteOrderAction, LoadOrdersAction } from 'src/app/state/store/action/hostel.action';
+import { AddCompletedOrderAction, AddCompletedOrderSuccessAction, DeleteOrderAction, DeleteOrderSuccessAction, LoadOrdersAction } from 'src/app/state/store/action/hostel.action';
 import { AppState } from 'src/app/state/store/reducer';
 import { SharedService } from '../../service/shared.service';
 
@@ -43,14 +43,9 @@ export class OrdersComponent implements OnInit {
   }
 
   finishOrder(id:number, order:Order){
-    this.service.DeleteOrder(id).subscribe(data => {
-      console.log(data);
-    });
-    this.store.dispatch(new DeleteOrderAction(order));
 
-    this.service.PostProcessedOrders(order).subscribe(data => {
-      console.log(data);
-    });
-    this.store.dispatch(new AddCompletedOrderAction(order));
+    this.store.dispatch(new DeleteOrderSuccessAction(order));
+
+    this.store.dispatch(new AddCompletedOrderSuccessAction(order));
   };
 }
