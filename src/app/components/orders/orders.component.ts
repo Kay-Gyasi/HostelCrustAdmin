@@ -43,10 +43,14 @@ export class OrdersComponent implements OnInit {
   }
 
   finishOrder(id:number, order:Order){
-    this.service.DeleteOrder(id);
-    this.store.dispatch(new DeleteOrderAction(order));
+    this.service.DeleteOrder(id).subscribe(data => {
+      console.log(data);
+    });
+    this.store.dispatch(new DeleteOrderAction(order.orderNum));
 
-    this.service.PostProcessedOrders(order);
+    this.service.PostProcessedOrders(order).subscribe(data => {
+      console.log(data);
+    });
     this.store.dispatch(new AddCompletedOrderAction(order));
   };
 }
