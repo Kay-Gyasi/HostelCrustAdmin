@@ -50,8 +50,7 @@ export class OrdersComponent implements OnInit {
 
     this.service.PostProcessedOrders(order).subscribe(data => {
       console.log(data);
+      window.location.reload();
     })
-
-    window.location.reload();
   };
 }
