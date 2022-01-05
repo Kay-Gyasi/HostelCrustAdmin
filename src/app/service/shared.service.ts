@@ -91,10 +91,10 @@ export class SharedService {
   }
 
   PostProcessedOrders(order:Order){
-    return this.http.post(this.apiurl+"ProOrders/PostProOrders", order);
+    return this.http.post(this.apiurl+"ProOrders/PostProOrder", order);
   }
 
   DeleteOrder(id:number){
-    return this.http.delete(this.apiurl+"Orders/DeleteOrder/"+id);
+    return this.http.delete(this.apiurl+"Order/DeleteOrder/"+id);
   }
 }
