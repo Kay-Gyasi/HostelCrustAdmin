@@ -70,6 +70,18 @@ export class LoadOrderDetailFailureAction implements Action {
   constructor(public payload:Error){}
 }
 
+export class DeleteOrderAction implements Action {
+  readonly type = AdminActionTypes.DELETE_ORDERS;
+
+  constructor(public payload:Order){}
+}
+
+export class AddCompletedOrderAction implements Action {
+  readonly type = AdminActionTypes.ADD_COMPLETED_ORDERS;
+
+  constructor(public payload:Order){}
+}
+
 export type AdminAction = LoadOrdersAction |
 LoadOrderSuccessAction |
 LoadOrderFailureAction |
@@ -81,4 +93,6 @@ LoadProductsSuccessAction |
 LoadProductsFailureAction |
 LoadCustomerssAction |
 LoadCustomerSuccessAction |
-LoadCustomerFailureAction;
+LoadCustomerFailureAction |
+DeleteOrderAction |
+AddCompletedOrderAction;
