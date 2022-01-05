@@ -39,7 +39,7 @@ export function orderReducer(state:AdminState = initialState, action:AdminAction
     case(AdminActionTypes.DELETE_ORDERS):
     return{
       ...state,
-      list:state.list.filter(item => item.orderNum !== action.payload)
+      list:state.list.filter(item => item.orderNum !== action.payload.orderNum)
     }
 
     case(AdminActionTypes.ADD_COMPLETED_ORDERS):

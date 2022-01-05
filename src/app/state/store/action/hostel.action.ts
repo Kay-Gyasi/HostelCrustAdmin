@@ -73,7 +73,7 @@ export class LoadOrderDetailFailureAction implements Action {
 export class DeleteOrderAction implements Action {
   readonly type = AdminActionTypes.DELETE_ORDERS;
 
-  constructor(public payload:string){}
+  constructor(public payload:Order){}
 }
 
 export class AddCompletedOrderAction implements Action {
