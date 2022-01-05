@@ -43,14 +43,20 @@ export class OrdersComponent implements OnInit {
   }
 
   finishOrder(id:number, order:Order){
+    this.deleteProcessedOrder(id);
+    this.postProcessedOrder(order);
+  };
 
+  deleteProcessedOrder(id:number){
     this.service.DeleteOrder(id).subscribe(data => {
       console.log(data);
-    })
+    });
+  }
 
+  postProcessedOrder(order:Order){
     this.service.PostProcessedOrders(order).subscribe(data => {
       console.log(data);
       window.location.reload();
-    })
-  };
+    });
+  }
 }
