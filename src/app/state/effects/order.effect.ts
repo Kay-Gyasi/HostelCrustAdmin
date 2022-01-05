@@ -21,7 +21,7 @@ export class OrderEffects{
         )
     ));
 
-    deleteOrder$ = createEffect(() => this.actions$
+    /* deleteOrder$ = createEffect(() => this.actions$
     .pipe(
         ofType<DeleteOrderSuccessAction>(AdminActionTypes.DELETE_ORDERS_SUCCESS),
         mergeMap(
@@ -43,7 +43,7 @@ export class OrderEffects{
           catchError(error => of(new AddCompletedOrderFailureAction(error)))
         )
       )
-    ));
+    )); */
 
     loadCompletedOrders$ = createEffect(() => this.actions$
     .pipe(
