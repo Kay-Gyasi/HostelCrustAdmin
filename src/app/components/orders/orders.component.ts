@@ -44,7 +44,9 @@ export class OrdersComponent implements OnInit {
 
   finishOrder(id:number, order:Order){
     this.deleteProcessedOrder(id);
-    this.postProcessedOrder(order);
+    // this.postProcessedOrder(order);
+
+    window.location.reload();
   };
 
   deleteProcessedOrder(id:number){
@@ -56,7 +58,6 @@ export class OrdersComponent implements OnInit {
   postProcessedOrder(order:Order){
     this.service.PostProcessedOrders(order).subscribe(data => {
       console.log(data);
-      window.location.reload();
     });
   }
 }
