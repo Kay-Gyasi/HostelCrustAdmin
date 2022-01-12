@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { catchError, map, mergeMap, of } from "rxjs";
 import { SharedService } from "src/app/service/shared.service";
-import { AddCompletedOrderFailureAction, AddCompletedOrderSuccessAction, DeleteOrderAction, DeleteOrderFailureAction, DeleteOrderSuccessAction, LoadCompletedOrderAction, LoadCompletedOrderFailureAction, LoadCompletedOrderSuccessAction, LoadCustomerFailureAction, LoadCustomerssAction, LoadCustomerSuccessAction, LoadOrderDetailsAction, LoadOrderFailureAction, LoadOrdersAction, LoadOrderSuccessAction, LoadProductsAction, LoadProductsFailureAction, LoadProductsSuccessAction } from "../store/action/hostel.action";
+import { LoadCompletedOrderAction, LoadCompletedOrderFailureAction, LoadCompletedOrderSuccessAction, LoadCustomerFailureAction, LoadCustomerssAction, LoadCustomerSuccessAction, LoadOrderDetailsAction, LoadOrderFailureAction, LoadOrdersAction, LoadOrderSuccessAction, LoadProductsAction, LoadProductsFailureAction, LoadProductsSuccessAction } from "../store/action/hostel.action";
 import { AdminActionTypes } from "../store/enum/enum";
 
 
@@ -16,7 +16,7 @@ export class OrderEffects{
             () => this.service.GetOrders()
             .pipe(
                 map(data => new LoadOrderSuccessAction(data)),
-                catchError(error =>of(new LoadOrderFailureAction(error)))
+                catchError(error => of(new LoadOrderFailureAction(error)))
             )
         )
     ));

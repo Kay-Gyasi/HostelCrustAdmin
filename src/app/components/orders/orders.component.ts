@@ -42,9 +42,8 @@ export class OrdersComponent implements OnInit {
     return 'details/' + orderNum;
   }
 
-  finishOrder(id:number, order:Order){
+  finishOrder(id:number){
     this.deleteProcessedOrder(id);
-    // this.postProcessedOrder(order);
 
     window.location.reload();
   };

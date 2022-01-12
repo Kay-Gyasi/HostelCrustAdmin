@@ -19,7 +19,7 @@
         <td>{{ x.deliveryLocation }}</td>
         <td>{{ trimDate(x.dateOrdered) }}</td>
         <td><button type="button" class="btn btn-primary" [routerLink]="details(x.orderNum)">Details</button></td>
-        <td><button class="btn btn-secondary" (click)="finishOrder(x.orderID, x)">Finish</button></td>
+        <td><button class="btn btn-secondary" (click)="finishOrder(x.orderID)">Finish</button></td>
       </tr>
     </tbody>
     <tfoot></tfoot>
