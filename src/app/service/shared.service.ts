@@ -11,7 +11,7 @@ import { Customer } from 'src/app/models/customer';
 })
 export class SharedService {
 
-  private readonly apiurl = "http://hostelcrust.azurewebsites.net/api/";
+  private readonly apiurl = "https://kaygyasiapi.herokuapp.com/api/";
 
   constructor(private http:HttpClient) { }
 
