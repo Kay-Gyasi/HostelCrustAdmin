@@ -42,15 +42,16 @@ export class OrdersComponent implements OnInit {
     return 'details/' + orderNum;
   }
 
-  finishOrder(id:number){
+  finishOrder(id:number, orderNum:string){
+    this.service.SendMail(orderNum).subscribe(data =>
+      console.log(data));
     this.deleteProcessedOrder(id);
-
-    window.location.reload();
   };
 
   deleteProcessedOrder(id:number){
     this.service.DeleteOrder(id).subscribe(data => {
       console.log(data);
+      window.location.reload();
     });
   }
 

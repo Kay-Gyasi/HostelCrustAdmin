@@ -97,4 +97,8 @@ export class SharedService {
   DeleteOrder(id:number){
     return this.http.delete(this.apiurl+"Order/DeleteOrder/"+id);
   }
+
+  SendMail(orderNum:string){
+    return this.http.get(this.apiurl+"CompleteMail/"+orderNum);
+  }
 }
