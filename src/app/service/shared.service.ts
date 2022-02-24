@@ -99,6 +99,6 @@ export class SharedService {
   }
 
   SendMail(orderNum:string){
-    return this.http.get(this.apiurl+"CompleteMail/"+orderNum);
+    return this.http.get(this.apiurl+"CompletedMail/CompleteMail/"+orderNum);
   }
 }
